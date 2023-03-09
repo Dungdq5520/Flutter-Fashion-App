@@ -7,7 +7,7 @@ class ApiProvider {
 
   ApiProvider() {
     BaseOptions options = BaseOptions(
-      baseUrl: 'http://192.168.1.35/api/',
+      baseUrl: 'https://demo55.ninavietnam.com.vn/flutter/api/',
     );
 
     _dio = Dio(options);

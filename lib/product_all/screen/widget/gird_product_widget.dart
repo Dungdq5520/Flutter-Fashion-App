@@ -55,6 +55,7 @@ class GridProductWidget extends ConsumerWidget {
                                 tag: item.id,
                                 child: Image.network(
                                   item.photo,
+                                  width: double.infinity,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -79,7 +80,7 @@ class GridProductWidget extends ConsumerWidget {
                               children: [
                                 Expanded(
                                   child: Text(
-                                    item.name,
+                                    item.namevi,
                                     style: const TextStyle(
                                       fontSize: 14,
                                       color: Color(0xFF373737),
@@ -97,11 +98,11 @@ class GridProductWidget extends ConsumerWidget {
                               padding: const EdgeInsets.only(top: 10),
                               width: double.infinity,
                               child: Text(
-                                int.parse(item.regular_price) > 0
+                                int.parse(item.regularPrice) > 0
                                     ? NumberFormat.currency(
                                         locale: 'vi_VN',
                                         symbol: 'đ',
-                                      ).format(int.parse(item.regular_price))
+                                      ).format(int.parse(item.regularPrice))
                                     : 'Liên hệ',
                                 style: TextStyle(
                                   fontSize: 15,

@@ -61,8 +61,7 @@ class ProductDetailControler extends StateNotifier<ProductDetailState> {
       String idProduct, String star, String imei, WidgetRef ref) async {
     state = state.copyWith(isLoading: true);
 
-    if (star.isNotEmpty) {
-      print(imei);
+    if (star.isNotEmpty) { 
       await putData(
         '/product',
         {

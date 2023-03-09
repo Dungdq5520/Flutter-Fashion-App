@@ -72,12 +72,14 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        product.name,
-                        style: const TextStyle(
-                          color: Color(0xFF222222),
-                          fontSize: 20,
+                    children: [ 
+                      Flexible(
+                        child: Text(
+                          product.namevi,
+                          style: const TextStyle(
+                            color: Color(0xFF222222),
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                       FavoriteWidget(product: product),
@@ -134,8 +136,8 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                       onPressed: () {
                         ref.read(cartState.notifier).addToCart(
                             item: CartModel(
-                              price: int.parse(product.regular_price),
-                              name: product.name,
+                              price: int.parse(product.regularPrice),
+                              name: product.namevi,
                               photo: product.photo,
                               productId: int.parse(product.id),
                             ),
@@ -164,8 +166,8 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                       onPressed: () {
                         ref.read(cartState.notifier).addToCart(
                             item: CartModel(
-                              price: int.parse(product.regular_price),
-                              name: product.name,
+                              price: int.parse(product.regularPrice),
+                              name: product.namevi,
                               photo: product.photo,
                               productId: int.parse(product.id),
                             ),

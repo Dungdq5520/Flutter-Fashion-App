@@ -1,8 +1,9 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import '../../product_favorite/layout_product_favorite.dart';
+import 'widget/home_widget.dart';
 import '../../constants.dart';
 import '../../icons/AppFonts_icons.dart';
-import 'widget/home_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _pages = [
     const HomeWidget(),
-    const HomeWidget(),
+    const LayoutProductFavorite(),
     const HomeWidget(),
     const HomeWidget(),
   ];
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: CustomNavigationBar(
         selectedColor: colorMain,
         strokeColor: colorMain,
-        unSelectedColor: const Color(0xffacacac),
+        unSelectedColor: const Color(0xffacacac), 
         backgroundColor: Colors.white,
         items: [
           CustomNavigationBarItem(

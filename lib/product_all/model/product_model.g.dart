@@ -9,28 +9,23 @@ part of 'product_model.dart';
 _$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
     _$_ProductModel(
       id: json['id'] as String,
-      name: json['name'] as String,
+      namevi: json['namevi'] as String,
       photo: json['photo'] as String,
-      regular_price: json['regular_price'] as String,
-      sale_price: json['sale_price'] as String,
+      regularPrice: json['regularPrice'] as String,
+      salePrice: json['salePrice'] as String,
       discount: json['discount'] as String,
       status: json['status'] as String,
-      id_list: json['id_list'] as String,
-      rating: (json['rating'] as List<dynamic>?)
-              ?.map((e) => RatingModel.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
+      idList: json['idList'] as String,
     );
 
 Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
+      'namevi': instance.namevi,
       'photo': instance.photo,
-      'regular_price': instance.regular_price,
-      'sale_price': instance.sale_price,
+      'regularPrice': instance.regularPrice,
+      'salePrice': instance.salePrice,
       'discount': instance.discount,
       'status': instance.status,
-      'id_list': instance.id_list,
-      'rating': instance.rating,
+      'idList': instance.idList,
     };

@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart'; 
 import '../../icons/AppFonts_icons.dart';
 import '../../constants.dart'; 
-import '../../product_filter/layout_product_filter.dart';
 import 'widget/appbar_widget.dart';
 import 'widget/product_widget.dart';
 
-class ProductAllScreen extends ConsumerStatefulWidget {
-  const ProductAllScreen({super.key});
+class ProductFavoriteScreen extends ConsumerStatefulWidget {
+  const ProductFavoriteScreen({super.key});
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _ProductAllScreenState();
+      _ProductFavoriteScreenState();
 }
 
-class _ProductAllScreenState extends ConsumerState<ProductAllScreen> {
+class _ProductFavoriteScreenState extends ConsumerState<ProductFavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +32,7 @@ class _ProductAllScreenState extends ConsumerState<ProductAllScreen> {
                         children: [
                           const Expanded(
                             child: Text(
-                              "Hàng mới về",
+                              "Sản phẩm ưa thích",
                               style: TextStyle(
                                 color: colorBlack,
                                 fontFamily: 'UAB',
@@ -45,13 +43,7 @@ class _ProductAllScreenState extends ConsumerState<ProductAllScreen> {
                           IconButton(
                             onPressed: () {},
                             icon: const Icon(AppFonts.sort),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              context.push(LayoutProductFilter.pathRoute);
-                            },
-                            icon: const Icon(AppFonts.filter),
-                          ),
+                          )
                         ],
                       ),
                     ),

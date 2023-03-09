@@ -58,8 +58,7 @@ class CartItemWidget extends ConsumerWidget {
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Title
+            children: [ 
               Text(
                 item.name,
                 style: const TextStyle(
@@ -67,9 +66,7 @@ class CartItemWidget extends ConsumerWidget {
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.start,
-              ),
-
-              // Price
+              ), 
               Text(
                 "${intl.NumberFormat.decimalPattern().format(item.price)}đ",
                 style: const TextStyle(

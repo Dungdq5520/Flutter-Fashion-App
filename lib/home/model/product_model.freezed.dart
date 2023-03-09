@@ -21,14 +21,13 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProductModel {
   String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String get namevi => throw _privateConstructorUsedError;
   String get photo => throw _privateConstructorUsedError;
-  String get regular_price => throw _privateConstructorUsedError;
-  String get sale_price => throw _privateConstructorUsedError;
+  String get regularPrice => throw _privateConstructorUsedError;
+  String get salePrice => throw _privateConstructorUsedError;
   String get discount => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
-  String get id_list => throw _privateConstructorUsedError;
-  List<String> get gallery => throw _privateConstructorUsedError;
+  String get idList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,14 +43,13 @@ abstract class $ProductModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String name,
+      String namevi,
       String photo,
-      String regular_price,
-      String sale_price,
+      String regularPrice,
+      String salePrice,
       String discount,
       String status,
-      String id_list,
-      List<String> gallery});
+      String idList});
 }
 
 /// @nodoc
@@ -68,35 +66,34 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? namevi = null,
     Object? photo = null,
-    Object? regular_price = null,
-    Object? sale_price = null,
+    Object? regularPrice = null,
+    Object? salePrice = null,
     Object? discount = null,
     Object? status = null,
-    Object? id_list = null,
-    Object? gallery = null,
+    Object? idList = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      namevi: null == namevi
+          ? _value.namevi
+          : namevi // ignore: cast_nullable_to_non_nullable
               as String,
       photo: null == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String,
-      regular_price: null == regular_price
-          ? _value.regular_price
-          : regular_price // ignore: cast_nullable_to_non_nullable
+      regularPrice: null == regularPrice
+          ? _value.regularPrice
+          : regularPrice // ignore: cast_nullable_to_non_nullable
               as String,
-      sale_price: null == sale_price
-          ? _value.sale_price
-          : sale_price // ignore: cast_nullable_to_non_nullable
+      salePrice: null == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
               as String,
       discount: null == discount
           ? _value.discount
@@ -106,14 +103,10 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      id_list: null == id_list
-          ? _value.id_list
-          : id_list // ignore: cast_nullable_to_non_nullable
+      idList: null == idList
+          ? _value.idList
+          : idList // ignore: cast_nullable_to_non_nullable
               as String,
-      gallery: null == gallery
-          ? _value.gallery
-          : gallery // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ) as $Val);
   }
 }
@@ -128,14 +121,13 @@ abstract class _$$_ProductModelCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String name,
+      String namevi,
       String photo,
-      String regular_price,
-      String sale_price,
+      String regularPrice,
+      String salePrice,
       String discount,
       String status,
-      String id_list,
-      List<String> gallery});
+      String idList});
 }
 
 /// @nodoc
@@ -150,35 +142,34 @@ class __$$_ProductModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? namevi = null,
     Object? photo = null,
-    Object? regular_price = null,
-    Object? sale_price = null,
+    Object? regularPrice = null,
+    Object? salePrice = null,
     Object? discount = null,
     Object? status = null,
-    Object? id_list = null,
-    Object? gallery = null,
+    Object? idList = null,
   }) {
     return _then(_$_ProductModel(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      namevi: null == namevi
+          ? _value.namevi
+          : namevi // ignore: cast_nullable_to_non_nullable
               as String,
       photo: null == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String,
-      regular_price: null == regular_price
-          ? _value.regular_price
-          : regular_price // ignore: cast_nullable_to_non_nullable
+      regularPrice: null == regularPrice
+          ? _value.regularPrice
+          : regularPrice // ignore: cast_nullable_to_non_nullable
               as String,
-      sale_price: null == sale_price
-          ? _value.sale_price
-          : sale_price // ignore: cast_nullable_to_non_nullable
+      salePrice: null == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
               as String,
       discount: null == discount
           ? _value.discount
@@ -188,14 +179,10 @@ class __$$_ProductModelCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      id_list: null == id_list
-          ? _value.id_list
-          : id_list // ignore: cast_nullable_to_non_nullable
+      idList: null == idList
+          ? _value.idList
+          : idList // ignore: cast_nullable_to_non_nullable
               as String,
-      gallery: null == gallery
-          ? _value._gallery
-          : gallery // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ));
   }
 }
@@ -205,15 +192,13 @@ class __$$_ProductModelCopyWithImpl<$Res>
 class _$_ProductModel implements _ProductModel {
   const _$_ProductModel(
       {required this.id,
-      required this.name,
+      required this.namevi,
       required this.photo,
-      required this.regular_price,
-      required this.sale_price,
+      required this.regularPrice,
+      required this.salePrice,
       required this.discount,
       required this.status,
-      required this.id_list,
-      required final List<String> gallery})
-      : _gallery = gallery;
+      required this.idList});
 
   factory _$_ProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_ProductModelFromJson(json);
@@ -221,30 +206,23 @@ class _$_ProductModel implements _ProductModel {
   @override
   final String id;
   @override
-  final String name;
+  final String namevi;
   @override
   final String photo;
   @override
-  final String regular_price;
+  final String regularPrice;
   @override
-  final String sale_price;
+  final String salePrice;
   @override
   final String discount;
   @override
   final String status;
   @override
-  final String id_list;
-  final List<String> _gallery;
-  @override
-  List<String> get gallery {
-    if (_gallery is EqualUnmodifiableListView) return _gallery;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_gallery);
-  }
+  final String idList;
 
   @override
   String toString() {
-    return 'ProductModel(id: $id, name: $name, photo: $photo, regular_price: $regular_price, sale_price: $sale_price, discount: $discount, status: $status, id_list: $id_list, gallery: $gallery)';
+    return 'ProductModel(id: $id, namevi: $namevi, photo: $photo, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, status: $status, idList: $idList)';
   }
 
   @override
@@ -253,32 +231,22 @@ class _$_ProductModel implements _ProductModel {
         (other.runtimeType == runtimeType &&
             other is _$_ProductModel &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.namevi, namevi) || other.namevi == namevi) &&
             (identical(other.photo, photo) || other.photo == photo) &&
-            (identical(other.regular_price, regular_price) ||
-                other.regular_price == regular_price) &&
-            (identical(other.sale_price, sale_price) ||
-                other.sale_price == sale_price) &&
+            (identical(other.regularPrice, regularPrice) ||
+                other.regularPrice == regularPrice) &&
+            (identical(other.salePrice, salePrice) ||
+                other.salePrice == salePrice) &&
             (identical(other.discount, discount) ||
                 other.discount == discount) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.id_list, id_list) || other.id_list == id_list) &&
-            const DeepCollectionEquality().equals(other._gallery, _gallery));
+            (identical(other.idList, idList) || other.idList == idList));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      photo,
-      regular_price,
-      sale_price,
-      discount,
-      status,
-      id_list,
-      const DeepCollectionEquality().hash(_gallery));
+  int get hashCode => Object.hash(runtimeType, id, namevi, photo, regularPrice,
+      salePrice, discount, status, idList);
 
   @JsonKey(ignore: true)
   @override
@@ -297,14 +265,13 @@ class _$_ProductModel implements _ProductModel {
 abstract class _ProductModel implements ProductModel {
   const factory _ProductModel(
       {required final String id,
-      required final String name,
+      required final String namevi,
       required final String photo,
-      required final String regular_price,
-      required final String sale_price,
+      required final String regularPrice,
+      required final String salePrice,
       required final String discount,
       required final String status,
-      required final String id_list,
-      required final List<String> gallery}) = _$_ProductModel;
+      required final String idList}) = _$_ProductModel;
 
   factory _ProductModel.fromJson(Map<String, dynamic> json) =
       _$_ProductModel.fromJson;
@@ -312,21 +279,19 @@ abstract class _ProductModel implements ProductModel {
   @override
   String get id;
   @override
-  String get name;
+  String get namevi;
   @override
   String get photo;
   @override
-  String get regular_price;
+  String get regularPrice;
   @override
-  String get sale_price;
+  String get salePrice;
   @override
   String get discount;
   @override
   String get status;
   @override
-  String get id_list;
-  @override
-  List<String> get gallery;
+  String get idList;
   @override
   @JsonKey(ignore: true)
   _$$_ProductModelCopyWith<_$_ProductModel> get copyWith =>

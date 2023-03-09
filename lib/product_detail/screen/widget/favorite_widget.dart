@@ -14,8 +14,7 @@ class FavoriteWidget extends ConsumerWidget {
   final ProductModel product;
 
   @override
-  Widget build(context, ref) {
-    List<String> ratedDevices = [];
+  Widget build(context, ref) { 
 
     final favoriteProviewder = ref.watch(productDetailFavoriteProviders);
     final favorite = favoriteProviewder.listProducts?.first ?? product;

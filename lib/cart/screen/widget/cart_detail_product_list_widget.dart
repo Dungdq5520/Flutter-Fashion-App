@@ -39,6 +39,7 @@ class CartDetailProductListState extends ConsumerState<CartDetailProductList> {
                       ),
                     ),
                     Column(
+                      mainAxisSize: MainAxisSize.max, 
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

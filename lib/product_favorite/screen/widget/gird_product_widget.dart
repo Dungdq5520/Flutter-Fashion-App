@@ -19,6 +19,8 @@ class GridProductWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(productDetailProviders, (previous, next) {
+      ref.read(isLoadingProvider.notifier).state = true;
+
       if (next.isLoading == false) {
         context.push(
             '${LayoutProductDeatil.pathRoute}/${next.listProducts?.first.id}');
@@ -42,19 +44,28 @@ class GridProductWidget extends ConsumerWidget {
                         ref
                             .read(productDetailProviders.notifier)
                             .init('/product?id=${item.id}');
-                        ref.read(isLoadingProvider.notifier).state = true;
                       },
                       child: AspectRatio(
                         aspectRatio: 33 / 40,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Hero(
-                            tag: item.id,
-                            child: Image.network(
-                              item.photo,
-                              fit: BoxFit.cover,
+                        child: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Hero(
+                                tag: item.id,
+                                child: Image.network(
+                                  item.photo,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height,
+                              child: const LoadingWidget(),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -65,7 +76,7 @@ class GridProductWidget extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween, 
                               children: [
                                 Expanded(
                                   child: Text(
@@ -80,7 +91,7 @@ class GridProductWidget extends ConsumerWidget {
                                     softWrap: true,
                                   ),
                                 ),
-                                FavoriteWidget(product: item),
+                                FavoriteWidget(item.id),
                               ],
                             ),
                             Container(

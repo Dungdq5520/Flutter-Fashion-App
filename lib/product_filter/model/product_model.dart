@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'rating_model.dart';
@@ -9,14 +11,14 @@ part 'product_model.g.dart';
 class ProductModel with _$ProductModel {
   const factory ProductModel({
     required String id,
-    required String name,
+    required String namevi,
     required String photo,
-    required String regular_price,
-    required String sale_price,
+    required String regularPrice,
+    required String salePrice,
     required String discount,
     required String status,
-    required String id_list,
-    @Default([]) List<RatingModel> rating,
+    required String idList,
+    // @Default([]) List<RatingModel> rating,
   }) = _ProductModel;
 
   factory ProductModel.fromJson(Map<String, Object?> json) =>

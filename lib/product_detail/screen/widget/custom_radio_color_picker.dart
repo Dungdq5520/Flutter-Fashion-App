@@ -15,7 +15,7 @@ class _RadioColorPickerControlState extends State<CustomRadioColorPicker> {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.min, 
         children: widget.listModel
             .asMap()
             .entries
@@ -50,7 +50,7 @@ class RadioColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5), 
       decoration: BoxDecoration(
           border: Border.all(
             width: 1,

@@ -29,7 +29,7 @@ class HomeOrder extends ConsumerWidget {
               SizedBox(
                 height: 20,
               ),
-              _viewOrder(),
+              ViewOrder(),
             ],
           ),
         ),
@@ -152,8 +152,8 @@ class _DateOrder extends StatelessWidget {
   }
 }
 
-class _viewOrder extends StatelessWidget {
-  const _viewOrder({Key? key}) : super(key: key);
+class ViewOrder extends StatelessWidget {
+  const ViewOrder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -10,14 +10,14 @@ class FavoriteWidget extends ConsumerWidget {
     required this.product,
   });
 
-  final ProductModel product;
+  final ProductModel product; 
 
   @override
   Widget build(context, ref) {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: TextButton(
-        onPressed: () {
+        onPressed: () { 
           ref
               .read(productHomeProviders.notifier)
               .toggleFavorite(int.parse(product.id), product.status.toString());
@@ -28,7 +28,7 @@ class FavoriteWidget extends ConsumerWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Icon(
-          (product.status.isNotEmpty) ? Icons.favorite : Icons.favorite_border,
+          (product.status.isNotEmpty) ? Icons.favorite_rounded : Icons.favorite_border_outlined,
           size: 15,
           color: Theme.of(context).primaryColor,
         ),

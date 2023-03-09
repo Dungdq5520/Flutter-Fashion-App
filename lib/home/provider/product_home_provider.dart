@@ -48,7 +48,7 @@ class ProductControler extends StateNotifier<ProductState> {
         newList.add(element);
       }
       await putData('/product', {'id': id, 'like': ''});
-      state = state.copyWith(listProducts: newList, isLoading: false);
+      state = state.copyWith(listProducts: newList, isLoading: false); 
     } else {
       List<ProductModel> newList = [];
       for (var element in state.listProducts!) {
@@ -58,7 +58,7 @@ class ProductControler extends StateNotifier<ProductState> {
         newList.add(element);
       }
       await putData('/product', {'id': id, 'like': 'like'});
-      state = state.copyWith(listProducts: newList, isLoading: false);
+      state = state.copyWith(listProducts: newList, isLoading: false); 
     }
   }
 }
