@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive/hive.dart';
 import '../model/product_model.dart';
 import '../repository/repository.dart';
 
@@ -9,7 +10,6 @@ enum ProductStatus { loading, liked, dislike }
 class ProductState {
   final List<ProductModel>? listProducts;
   bool? isLoading;
-
   ProductState({this.listProducts, this.isLoading = true});
 
   ProductState copyWith({List<ProductModel>? listProducts, bool? isLoading}) {
@@ -21,6 +21,7 @@ class ProductState {
 
 class ProductControler extends StateNotifier<ProductState> {
   ProductControler() : super(ProductState());
+  final Box boxFav = Hive.box('FavoritesBox');
 
   init(String url) async {
     final List<ProductModel>? items = await fetchProducts(url);
@@ -37,28 +38,27 @@ class ProductControler extends StateNotifier<ProductState> {
     return newList;
   }
 
-  void toggleFavorite(int id, String like) async {
+  void toggleFavorite(int id, bool curFav) async {
     state = state.copyWith(isLoading: true);
-    if (like.isNotEmpty) {
+    if (!curFav) {
       List<ProductModel> newList = [];
       for (var element in state.listProducts!) {
         if (int.parse(element.id.toString()) == id) {
-          element = element.copyWith(status: '');
+          element = element.copyWith(isFav: true);
         }
         newList.add(element);
       }
-      await putData('/product', {'id': id, 'like': ''});
-      state = state.copyWith(listProducts: newList, isLoading: false); 
+      print(boxFav.values);
+      state = state.copyWith(listProducts: newList, isLoading: false);
     } else {
       List<ProductModel> newList = [];
       for (var element in state.listProducts!) {
         if (int.parse(element.id.toString()) == id) {
-          element = element.copyWith(status: 'like');
+          element = element.copyWith(isFav: false);
         }
         newList.add(element);
       }
-      await putData('/product', {'id': id, 'like': 'like'});
-      state = state.copyWith(listProducts: newList, isLoading: false); 
+      state = state.copyWith(listProducts: newList, isLoading: false);
     }
   }
 }

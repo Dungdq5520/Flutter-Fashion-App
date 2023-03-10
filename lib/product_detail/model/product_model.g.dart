@@ -18,6 +18,7 @@ _$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
       idList: json['idList'] as String,
       gallery:
           (json['gallery'] as List<dynamic>).map((e) => e as String).toList(),
+      isFav: json['isFav'] ?? false,
     );
 
 Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
@@ -31,4 +32,5 @@ Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
       'status': instance.status,
       'idList': instance.idList,
       'gallery': instance.gallery,
+      'isFav': instance.isFav,
     };

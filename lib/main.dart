@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dropdown_alert/dropdown_alert.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:thoitrang/website/layout_website.dart';
 import 'cart/model/cart_model.dart';
+import 'home/model/product_favotite_model.dart';
 import 'loading/layout_loading.dart';
 import 'cart/layout_cart.dart';
 import 'cart/layout_cart_detail.dart';
@@ -11,8 +13,8 @@ import 'constants.dart';
 import 'home/layout_home.dart';
 import 'order/layout_order.dart';
 import 'product_all/layout_product_all.dart';
-import 'product_detail/layout_product_detail.dart'; 
-import 'package:hive_flutter/hive_flutter.dart'; 
+import 'product_detail/layout_product_detail.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'product_favorite/layout_product_favorite.dart';
 import 'product_filter/layout_product_filter.dart';
 
@@ -21,7 +23,11 @@ Future<void> main() async {
 
   await Hive.initFlutter();
   Hive.registerAdapter(CartModelAdapter());
-  await Hive.openBox<CartModel>('CartBox'); 
+  await Hive.openBox<CartModel>('CartBox');
+
+  Hive.registerAdapter(ProductFavoriteModelAdapter());
+  await Hive.openBox<ProductFavoriteModel>('FavoritesBox');
+
   await Hive.openBox('favorites');
 
   runApp(const ProviderScope(child: MyApp()));
@@ -40,12 +46,13 @@ final GoRouter _router = GoRouter(
     LayoutCartDetail.goRoute(),
     LayoutCartSuccess.goRoute(),
     LayoutProductFavorite.goRoute(),
+    LayoutWebsite.goRoute(),
   ],
 );
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
- 
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
@@ -62,10 +69,7 @@ class MyApp extends ConsumerWidget {
       ),
       routerConfig: _router,
       builder: (context, child) => Stack(
-        children: [
-          child!,
-          const DropdownAlert(),
-        ],
+        children: [child!, const DropdownAlert()],
       ),
     );
   }

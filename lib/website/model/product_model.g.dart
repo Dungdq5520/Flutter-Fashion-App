@@ -16,7 +16,6 @@ _$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
       discount: json['discount'] as String,
       status: json['status'] as String,
       idList: json['idList'] as String,
-      isFav: json['isFav'] ?? false,
     );
 
 Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
@@ -29,5 +28,4 @@ Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
       'discount': instance.discount,
       'status': instance.status,
       'idList': instance.idList,
-      'isFav': instance.isFav,
     };

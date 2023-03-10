@@ -14,8 +14,7 @@ class FavoriteWidget extends ConsumerWidget {
   final ProductModel product;
 
   @override
-  Widget build(context, ref) { 
-
+  Widget build(context, ref) {
     final favoriteProviewder = ref.watch(productDetailFavoriteProviders);
     final favorite = favoriteProviewder.listProducts?.first ?? product;
 
@@ -24,8 +23,9 @@ class FavoriteWidget extends ConsumerWidget {
       children: [
         TextButton(
           onPressed: () {
-            ref.read(productDetailFavoriteProviders.notifier).toggleFavorite(
-                int.parse(favorite.id), favorite.status.toString(), ref);
+            ref
+                .read(productDetailFavoriteProviders.notifier)
+                .toggleFavorite(int.parse(product.id), product.isFav, ref);
           },
           style: TextButton.styleFrom(
             minimumSize: Size.zero,
@@ -33,9 +33,7 @@ class FavoriteWidget extends ConsumerWidget {
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
           child: Icon(
-            (favorite.status.isNotEmpty)
-                ? Icons.favorite
-                : Icons.favorite_border,
+            (product.isFav) ? Icons.favorite : Icons.favorite_border,
             size: 25,
             color: Theme.of(context).primaryColor,
           ),

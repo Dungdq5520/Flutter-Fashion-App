@@ -72,7 +72,7 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [ 
+                    children: [
                       Flexible(
                         child: Text(
                           product.namevi,
@@ -160,33 +160,36 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                   ),
                 ),
                 Expanded(
-                  child: SizedBox(
-                    height: 46,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        ref.read(cartState.notifier).addToCart(
-                            item: CartModel(
-                              price: int.parse(product.regularPrice),
-                              name: product.namevi,
-                              photo: product.photo,
-                              productId: int.parse(product.id),
-                            ),
-                            qty: 1);
-                        context.push("/cart");
-                      },
-                      style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          backgroundColor: const Color(0xFFFF7465),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10))),
-                      child: const Text(
-                        "Mua ngay",
-                        style: TextStyle(
-                            color: Color(0xFFFFFFFF),
-                            fontSize: 14,
-                            height: 1.4,
-                            fontWeight: FontWeight.w700),
-                        textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: SizedBox(
+                      height: 46,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          ref.read(cartState.notifier).addToCart(
+                              item: CartModel(
+                                price: int.parse(product.regularPrice),
+                                name: product.namevi,
+                                photo: product.photo,
+                                productId: int.parse(product.id),
+                              ),
+                              qty: 1);
+                          context.push("/cart");
+                        },
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            backgroundColor: const Color(0xFFFF7465),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                        child: const Text(
+                          "Mua ngay",
+                          style: TextStyle(
+                              color: Color(0xFFFFFFFF),
+                              fontSize: 14,
+                              height: 1.4,
+                              fontWeight: FontWeight.w700),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
                   ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../model/product_model.dart';
-import '../../provider/product_home_provider.dart';
+import '../../provider/product_filter.dart';
 
 class FavoriteWidget extends ConsumerWidget {
   const FavoriteWidget({
@@ -19,8 +19,8 @@ class FavoriteWidget extends ConsumerWidget {
       child: TextButton(
         onPressed: () {
           ref
-              .read(productHomeProviders.notifier)
-              .toggleFavorite(int.parse(product.id), product.isFav);
+              .read(productAllProviders.notifier)
+              .toggleFavorite(int.parse(product.id), product.status.toString());
         },
         style: TextButton.styleFrom(
           minimumSize: Size.zero,
@@ -28,9 +28,7 @@ class FavoriteWidget extends ConsumerWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Icon(
-          (product.isFav)
-              ? Icons.favorite_rounded
-              : Icons.favorite_border_outlined,
+          (product.status.isNotEmpty) ? Icons.favorite : Icons.favorite_border,
           size: 15,
           color: Theme.of(context).primaryColor,
         ),

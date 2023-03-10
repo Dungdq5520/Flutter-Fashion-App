@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../icons/AppFonts_icons.dart';
-import '../../constants.dart'; 
+import '../../constants.dart';
 import 'widget/appbar_widget.dart';
 import 'widget/product_widget.dart';
 
@@ -54,7 +54,7 @@ class _ProductFavoriteScreenState extends ConsumerState<ProductFavoriteScreen> {
                     ),
                     const Padding(
                       padding: EdgeInsets.fromLTRB(defaultPadding, 0,
-                          defaultPadding, defaultPadding * 2),
+                          defaultPadding, defaultPadding * 1.5),
                       child: ProductWidget('/product'),
                     ),
                   ],

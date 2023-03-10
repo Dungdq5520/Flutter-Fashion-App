@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,19 +40,19 @@ class ProductDetailControler extends StateNotifier<ProductDetailState> {
     return newList;
   }
 
-  void toggleFavorite(int id, String like, WidgetRef ref) async {
+  void toggleFavorite(int id, bool curFav, WidgetRef ref) async {
     final List<ProductModel>? items = await fetchProducts('/product?id=$id');
     state = state.copyWith(isLoading: true);
     ref.read(isLoadingProvider.notifier).state = true;
     List<ProductModel> newList = [];
-    if (like.isNotEmpty) {
+    if (curFav) {
       newList.add(items!.first.copyWith(status: ''));
       await putData('/product', {'id': id, 'like': ''});
-      ref.read(productHomeProviders.notifier).toggleFavorite(id, 'like');
+      ref.read(productHomeProviders.notifier).toggleFavorite(id, curFav);
     } else {
       newList.add(items!.first.copyWith(status: 'like'));
       await putData('/product', {'id': id, 'like': 'like'});
-      ref.read(productHomeProviders.notifier).toggleFavorite(id, '');
+      ref.read(productHomeProviders.notifier).toggleFavorite(id, curFav);
     }
     state = state.copyWith(listProducts: newList, isLoading: false);
     ref.read(isLoadingProvider.notifier).state = false;
@@ -61,7 +62,7 @@ class ProductDetailControler extends StateNotifier<ProductDetailState> {
       String idProduct, String star, String imei, WidgetRef ref) async {
     state = state.copyWith(isLoading: true);
 
-    if (star.isNotEmpty) { 
+    if (star.isNotEmpty) {
       await putData(
         '/product',
         {

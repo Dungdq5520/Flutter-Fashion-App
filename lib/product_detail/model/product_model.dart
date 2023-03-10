@@ -18,6 +18,7 @@ class ProductModel with _$ProductModel {
     required String idList,
     required List<String> gallery,
     // @Default([]) List<RatingModel> rating,
+    @Default(false) isFav,
   }) = _ProductModel;
 
   factory ProductModel.fromJson(Map<String, Object?> json) =>
