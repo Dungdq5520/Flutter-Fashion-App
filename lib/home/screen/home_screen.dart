@@ -1,7 +1,10 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:thoitrang/website/layout_website.dart';
+import '../../account/layout_account.dart';
 import '../../cart/layout_cart.dart';
+import '../../generate_pdf_invoice/layout_generate_pdf_invoice.dart';
+import '../../login/layout_login.dart';
 import '../../product_favorite/layout_product_favorite.dart';
 import 'widget/home_widget.dart';
 import '../../constants.dart';
@@ -22,9 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
     const LayoutProductFavorite(),
     const LayoutCart(),
     const LayoutWebsite(),
-    const LayoutWebsite(),
-    const LayoutWebsite(),
-    const HomeWidget(),
+    const LayoutLogin(),
+    const LayoutGeneratePdfInvoice(),
+    const LayoutAccount(),
   ];
 
   void _onItemTapped(int index) {

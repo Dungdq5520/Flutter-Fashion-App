@@ -1,43 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive/hive.dart';
 
-import '../../provider/add_favorite_controller.dart';
+import '../../../home/model/product_model.dart';
+import '../../provider/product_favorite_provider.dart';
 
-class FavoriteWidget extends ConsumerStatefulWidget {
-  final String? id;
-  const FavoriteWidget(this.id, {super.key});
+class FavoriteWidget extends ConsumerWidget {
+  const FavoriteWidget({
+    super.key,
+    required this.product,
+  });
 
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _FavoriteWidgetState();
-}
-
-class _FavoriteWidgetState extends ConsumerState<FavoriteWidget> {
-  final Box boxFav = Hive.box('favorites');
-  bool isFav = false;
+  final ProductModel product;
 
   @override
-  void initState() {
-    super.initState();
-    if (boxFav.get('list_product_fav') != null) {
-      isFav = AddFavoriteController.checkIsFav(
-        id: widget.id.toString(),
-        listFav: (boxFav.get('list_product_fav') as String).split(','),
-      );
-    }
-  }
-
-  @override
-  Widget build(context) {
+  Widget build(context, ref) {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: TextButton(
-        onPressed: () async {
-          bool a = await AddFavoriteController.updateFav(
-              id: widget.id.toString(), boxFav: boxFav);
-          setState(() {
-            isFav = a;
-          });
+        onPressed: () {
+          ref
+              .read(productFavoriteProviders.notifier)
+              .toggleFavorite(int.parse(product.id), product.isFav);
         },
         style: TextButton.styleFrom(
           minimumSize: Size.zero,
@@ -45,7 +28,9 @@ class _FavoriteWidgetState extends ConsumerState<FavoriteWidget> {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Icon(
-          (isFav) ? Icons.favorite : Icons.favorite_border,
+          (product.isFav)
+              ? Icons.favorite_rounded
+              : Icons.favorite_border_outlined,
           size: 15,
           color: Theme.of(context).primaryColor,
         ),

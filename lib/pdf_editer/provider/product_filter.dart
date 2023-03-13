@@ -106,4 +106,4 @@ final productAllFavoriteProviders =
     final productFilterProvider = ref.watch(productFilterProviders);
     return ProductAllControler(productFilterProvider);
   },
-); 
+);

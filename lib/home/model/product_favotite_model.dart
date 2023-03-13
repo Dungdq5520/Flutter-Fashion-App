@@ -20,12 +20,12 @@ class ProductFavoriteModel extends HiveObject {
   late bool isFav;
 
   ProductFavoriteModel({
-    this.id = "",
-    this.namevi = "",
-    this.photo = "",
-    this.salePrice = "",
-    this.regularPrice = "",
-    this.idList = "",
+    required this.id,
+    required this.namevi,
+    required this.photo,
+    required this.salePrice,
+    required this.regularPrice,
+    required this.idList,
     this.isFav = false,
   });
 }

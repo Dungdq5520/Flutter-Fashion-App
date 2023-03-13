@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../provider/product_favorite_provider.dart';
 
-import '../../provider/product_favorite.dart';
 import 'gird_product_widget.dart';
 
 class ProductWidget extends ConsumerStatefulWidget {
@@ -16,14 +16,17 @@ class _ProductWidgetState extends ConsumerState<ProductWidget> {
   @override
   void initState() {
     super.initState();
-    ref.read(productAllProviders.notifier).init(widget.url);
+    ref.read(productFavoriteProviders.notifier).init(widget.url);
   }
 
   @override
   Widget build(context) {
-    final products = ref.watch(productAllProviders);
+    final products = ref.watch(productFavoriteProviders);
     return (products.listProducts != null && products.listProducts!.isNotEmpty)
         ? GridProductWidget(products: products.listProducts!)
-        : const Text("Không tìm thấy sản phẩm");
+        : Container(
+            padding: const EdgeInsets.all(20),
+            child: const Text('Chưa có sản phẩn yêu thích!'),
+          );
   }
 }

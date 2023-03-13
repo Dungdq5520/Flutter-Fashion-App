@@ -161,7 +161,7 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 0),
                     child: SizedBox(
                       height: 46,
                       child: ElevatedButton(

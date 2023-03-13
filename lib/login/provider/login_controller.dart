@@ -1,7 +1,12 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../modules/register/model/user_model.dart';
+
+// ignore: depend_on_referenced_packages
+import 'package:crypto/crypto.dart';
+
+import '../model/user_model.dart';
+import 'login_state.dart';
 
 // Future<List<UserModel>> getUserList() async {
 //   final response =
@@ -17,7 +22,7 @@ import '../../modules/register/model/user_model.dart';
 
 Future<List<UserModel>> getUserList() async {
   final dio = Dio();
-  final response = await dio.post("http://192.168.1.39/test/user");
+  final response = await dio.post("http://10.0.2.2:80/test/user");
   if (response.statusCode == 200) {
     List jsonRaw = jsonDecode(response.data);
     List<UserModel> data = jsonRaw.map((e) => UserModel.fromJson(e)).toList();
@@ -33,20 +38,20 @@ final fListUserProvider = FutureProvider<List<UserModel>>(
   },
 );
 
-// bool checkLogin(
-//     List<UserModel> listUser, String email, String password, WidgetRef ref) {
-//   bool isTrue = false;
+bool checkLogin(
+    List<UserModel> listUser, String email, String password, WidgetRef ref) {
+  bool isTrue = false;
 
-//   if (email != '' && password != '') {
-//     for (int i = 0; i < listUser.length; i++) {
-//       if (listUser[i].email == email) {
-//         if (listUser[i].password ==
-//             md5.convert(utf8.encode(password)).toString()) {
-//           ref.read(usersState.notifier).state = listUser[i];
-//           isTrue = true;
-//         }
-//       }
-//     }
-//   }
-//   return isTrue;
-// }
+  if (email != '' && password != '') {
+    for (int i = 0; i < listUser.length; i++) {
+      if (listUser[i].email == email) {
+        if (listUser[i].password ==
+            md5.convert(utf8.encode(password)).toString()) {
+          ref.read(usersState.notifier).state = listUser[i];
+          isTrue = true;
+        }
+      }
+    }
+  }
+  return isTrue;
+}

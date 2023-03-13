@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dropdown_alert/dropdown_alert.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:thoitrang/website/layout_website.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'account/layout_account.dart';
+import 'generate_pdf_invoice/layout_generate_pdf_invoice.dart';
+import 'pdf_editer/layout_pdf_editer.dart';
+import 'register/layout_register.dart';
+import 'redeemcode/layout_redeemcode.dart';
+import 'website/layout_website.dart';
 import 'cart/model/cart_model.dart';
+import 'forgotpassword/layout_forgotpassword.dart';
 import 'home/model/product_favotite_model.dart';
 import 'loading/layout_loading.dart';
 import 'cart/layout_cart.dart';
@@ -11,10 +18,10 @@ import 'cart/layout_cart_detail.dart';
 import 'cart/layout_cart_success.dart';
 import 'constants.dart';
 import 'home/layout_home.dart';
+import 'login/layout_login.dart';
 import 'order/layout_order.dart';
 import 'product_all/layout_product_all.dart';
 import 'product_detail/layout_product_detail.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'product_favorite/layout_product_favorite.dart';
 import 'product_filter/layout_product_filter.dart';
 
@@ -27,8 +34,6 @@ Future<void> main() async {
 
   Hive.registerAdapter(ProductFavoriteModelAdapter());
   await Hive.openBox<ProductFavoriteModel>('FavoritesBox');
-
-  await Hive.openBox('favorites');
 
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -47,6 +52,13 @@ final GoRouter _router = GoRouter(
     LayoutCartSuccess.goRoute(),
     LayoutProductFavorite.goRoute(),
     LayoutWebsite.goRoute(),
+    LayoutAccount.goRoute(),
+    LayoutLogin.goRoute(),
+    LayoutRegister.goRoute(),
+    LayoutRedeemCode.goRoute(),
+    LayoutForgotPassword.goRoute(),
+    LayoutPdfEditer.goRoute(),
+    LayoutGeneratePdfInvoice.goRoute(),
   ],
 );
 

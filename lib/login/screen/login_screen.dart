@@ -282,8 +282,13 @@ class LoginScreen extends StatelessWidget {
                               },
                             ),
                           ),
-                          child: const Text(
-                            "Quên mật khẩu ?",
+                          child: InkWell(
+                            onTap: () {
+                              context.go('/forgotpassword');
+                            },
+                            child: const Text(
+                              "Quên mật khẩu ?",
+                            ),
                           ),
                         ),
                       ),

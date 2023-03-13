@@ -2,26 +2,27 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
-import '../model/product_favotite_model.dart';
-import '../model/product_model.dart';
-import '../repository/repository.dart';
+import '../../home/model/product_favotite_model.dart';
+import '../../home/model/product_model.dart';
+import '../../home/repository/repository.dart';
 
 enum ProductStatus { loading, liked, dislike }
 
-class ProductState {
+class ProductFavoriteState {
   final List<ProductModel>? listProducts;
   bool? isLoading;
-  ProductState({this.listProducts, this.isLoading = true});
+  ProductFavoriteState({this.listProducts, this.isLoading = true});
 
-  ProductState copyWith({List<ProductModel>? listProducts, bool? isLoading}) {
-    return ProductState(
+  ProductFavoriteState copyWith(
+      {List<ProductModel>? listProducts, bool? isLoading}) {
+    return ProductFavoriteState(
         isLoading: isLoading ?? this.isLoading,
         listProducts: listProducts ?? this.listProducts);
   }
 }
 
-class ProductControler extends StateNotifier<ProductState> {
-  ProductControler() : super(ProductState());
+class ProductFavoriteControler extends StateNotifier<ProductFavoriteState> {
+  ProductFavoriteControler() : super(ProductFavoriteState());
 
   init(String url) async {
     final List<ProductModel>? items = await fetchProducts(url);
@@ -31,8 +32,8 @@ class ProductControler extends StateNotifier<ProductState> {
     for (var element in items!) {
       if (boxFav.get(int.parse(element.id.toString())) != null) {
         element = element.copyWith(isFav: true);
+        newList.add(element);
       }
-      newList.add(element);
     }
 
     state = state.copyWith(listProducts: newList, isLoading: false);
@@ -82,14 +83,15 @@ class ProductControler extends StateNotifier<ProductState> {
           if (boxFav.get(id) != null) {
             boxFav.delete(id);
           }
+        } else {
+          newList.add(element);
         }
-        newList.add(element);
       }
       state = state.copyWith(listProducts: newList, isLoading: false);
     }
   }
 }
 
-final productHomeProviders =
-    StateNotifierProvider<ProductControler, ProductState>(
-        (ref) => ProductControler());
+final productFavoriteProviders =
+    StateNotifierProvider<ProductFavoriteControler, ProductFavoriteState>(
+        (ref) => ProductFavoriteControler());
